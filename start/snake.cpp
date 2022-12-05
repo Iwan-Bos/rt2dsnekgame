@@ -14,7 +14,6 @@ float freq = .05f;
 float anchorY = SHEIGHT /2;
 
 
-
 Snake::Snake() : Entity()
 {
 	this->addSprite("assets/snekhead.tga");
@@ -24,7 +23,6 @@ Snake::Snake() : Entity()
 
 Snake::~Snake()
 {
-	// <image url = "C:\Users\iwanb\Documents\Project rt2d\yed\ClassDiagramSnakeGame.png" scale = "1"/>
 }
 
 
@@ -33,7 +31,10 @@ void Snake::Controls(float deltaTime)
 	speed = 100 * deltaTime;
 	currentRotation = this->rotation.z * 180 / PI;
 	currentRotation = fmod(currentRotation, 180);
-	// WASD for 4-way movement
+
+	// ###########################
+	//   WASD for 4-way movement
+	// ###########################
 	if (input()->getKey(KeyCode::W)) {
 		this->rotation.z = -PI / 2; // UP
 	}
@@ -46,7 +47,10 @@ void Snake::Controls(float deltaTime)
 	if (input()->getKey(KeyCode::D)) {
 		this->rotation.z = 0; // RIGHT
 	}
-	// UIJK for 4-way diagonal movment
+
+	// ###################################
+	//   UIJK for 4-way diagonal movment
+	// ###################################
 	if (input()->getKey(KeyCode::Up)) {
 		this->rotation.z = -PI / 4; // North East
 	}
@@ -61,15 +65,15 @@ void Snake::Controls(float deltaTime)
 	}
 }
 
-void Snake::Move(float deltaTime)
+void Snake::Move(float deltaTime) 
 {
-	
+	// Koen wtf is dit
+	this->position.x += (cos(0.017453277777 * currentRotation)) * speed;
+	this->position.y += (sin(0.017453277777 * currentRotation)) * speed;
 }
 
 void Snake::update(float deltaTime)
 {
 	Controls(deltaTime);
 	Move(deltaTime);
-	this->position.x += (cos(0.017453277777 * currentRotation)) * speed;
-	this->position.y += (sin(0.017453277777 * currentRotation)) * speed;
 }
