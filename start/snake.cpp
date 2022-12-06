@@ -35,7 +35,7 @@ void Snake::Controls(float deltaTime)
 	currentRotation = fmod(currentRotation, 180);
 
 	// ###########################
-	//   WASD for 4-way movement
+	//   W, D A, & S for 4-way movement
 	// ###########################
 	if (input()->getKey(KeyCode::W)) { this->rotation.z = -90 * DEG_TO_RAD; } // Up
 	if (input()->getKey(KeyCode::D)) { this->rotation.z = 0 * DEG_TO_RAD; } // Right
@@ -43,7 +43,7 @@ void Snake::Controls(float deltaTime)
 	if (input()->getKey(KeyCode::S)) { this->rotation.z = 90 * DEG_TO_RAD; } // Downs
 
 	// ###################################
-	//   UIJK for 4-way diagonal movment
+	//   Up, Right, Down & Left for 4-way diagonal movment
 	// ###################################
 	if (input()->getKey(KeyCode::Up)) { this->rotation.z = -45 * DEG_TO_RAD; } // UpRight
 	if (input()->getKey(KeyCode::Right)) { this->rotation.z = 45 * DEG_TO_RAD; } // DownRight
