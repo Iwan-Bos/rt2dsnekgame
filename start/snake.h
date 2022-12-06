@@ -8,9 +8,9 @@
 
 #ifndef MYENTITY_H
 #define MYENTITY_H
-#define PI 3.14159265358979323846
 
 #include <rt2d/entity.h>
+#include <rt2d/vectorx.h>
 
 /// @brief The Snake class is the Entity implementation.
 class Snake : public Entity
@@ -21,16 +21,25 @@ public:
 	/// @brief Destructor
 	virtual ~Snake();
 
-	/// @brief update is automatically called every frame
-	/// @param deltaTime the elapsed time in seconds
-	/// @return void
+	/// <summary>
+	/// Update function, gets called every frame.
+	/// </summary>
+	/// <param name="deltaTime"></param>
 	virtual void update(float deltaTime);
 	float currentRotation;
 	float speed;
 
 private:
-	/* add your private declarations */
-	void Move(float deltaTime);
+	/// <summary>
+	/// Ik weet niet wat koen deed hier
+	/// </summary>
+	/// <param name="deltaTime"></param>
+	void WtfKoen(float deltaTime);
+
+	/// <summary>
+	/// Function in which the controls are recieved and converted to directions to face.
+	/// </summary>
+	/// <param name="deltaTime"></param>
 	void Controls(float deltaTime);
 };
 
