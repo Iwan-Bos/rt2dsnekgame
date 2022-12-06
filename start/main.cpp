@@ -1,26 +1,27 @@
 /**
- * Copyright 2015 Your Name <you@yourhost.com>
- *
- * @brief Description of My Awesome Game.
- *
- * @file main.cpp
- *
- * @mainpage My Awesome Game
- *
- * @section intro Introduction
- *
- * Detailed description of My Awesome Game.
- *
- * There's even a second paragraph.
- */
+
+    @file      main.cpp
+
+    @brief     Description of My Awesome Game
+    @section   intro Introduction
+
+	@author    Iwan Bos
+    @date      6.12.2022
+    @copyright © Iwan Bos, 2022. All right reserved.
+
+**/
+
 #include <rt2d/core.h>
 
 #include "snakescene.h"
 
-/// @brief main entry point
+/**
+    @brief  main entry point
+    @retval  - 
+**/
 int main( void )
 {
-	// Core instance
+	// @brief Core instance
 	Core core;
 
 	// Scene01
