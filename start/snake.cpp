@@ -37,18 +37,18 @@ void Snake::Controls(float deltaTime)
 	// ###########################
 	//   WASD for 4-way movement
 	// ###########################
-	//if (input()->getKey(KeyCode::W)) { VectorX_t<t>::rotateDeg(); }
-	if (input()->getKey(KeyCode::D)) { this->rotation.z = 0; }
-	if (input()->getKey(KeyCode::A)) { this->rotation.z = PI - 0.0001; }
-	if (input()->getKey(KeyCode::S)) { this->rotation.z = PI / 2; }
+	if (input()->getKey(KeyCode::W)) { this->rotation.z = -90 * DEG_TO_RAD; } // Up
+	if (input()->getKey(KeyCode::D)) { this->rotation.z = 0 * DEG_TO_RAD; } // Right
+	if (input()->getKey(KeyCode::A)) { this->rotation.z = 180 * DEG_TO_RAD - .0000001; } // Left
+	if (input()->getKey(KeyCode::S)) { this->rotation.z = 90 * DEG_TO_RAD; } // Downs
 
 	// ###################################
 	//   UIJK for 4-way diagonal movment
 	// ###################################
-	if (input()->getKey(KeyCode::Up)) { this->rotation.z = -PI / 4; } // UpRight
-	if (input()->getKey(KeyCode::Right)) { this->rotation.z = PI / 4; } // DownRight
-	if (input()->getKey(KeyCode::Down)) { this->rotation.z = PI / 4 * 3; } // DownLeft
-	if (input()->getKey(KeyCode::Left)) { this->rotation.z = -PI / 4 * 3; } // UpLeft
+	if (input()->getKey(KeyCode::Up)) { this->rotation.z = -45 * DEG_TO_RAD; } // UpRight
+	if (input()->getKey(KeyCode::Right)) { this->rotation.z = 45 * DEG_TO_RAD; } // DownRight
+	if (input()->getKey(KeyCode::Down)) { this->rotation.z = 135 * DEG_TO_RAD; } // DownLeft
+	if (input()->getKey(KeyCode::Left)) { this->rotation.z = -135 * DEG_TO_RAD; } // UpLeft
 }
 
 void Snake::WtfKoen(float deltaTime) 
