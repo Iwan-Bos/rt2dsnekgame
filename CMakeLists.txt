@@ -160,6 +160,8 @@ IF(MAKE_START)
 		start/snakescene.h
 		start/snakebody.cpp
 		start/snakebody.h
+		start/hud.cpp
+		start/hud.h
 	)
 	target_link_libraries(start
 		${ALL_GRAPHICS_LIBS}
