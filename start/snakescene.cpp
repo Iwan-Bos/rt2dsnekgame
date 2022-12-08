@@ -29,6 +29,9 @@ SnakeScene::SnakeScene() : Scene()
 	// create a single instance of Snake in the middle of the screen.
 	// the Sprite is added in Constructor of Snake.
 	snake = new Snake();
+
+	//hud = new Hud(); <<<<<<<<<<<<<<<<< HUD HERE AND STFFFFFFFFFFFFFFFFF
+
 	snake->position = Point2(SWIDTH/2, SHEIGHT/2);
 
 	// create the scene 'tree'
