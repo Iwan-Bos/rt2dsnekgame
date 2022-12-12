@@ -1,18 +1,19 @@
 /**
 
     @file      snakescene.h
-    @brief     header for snakescene.cpp
+    @brief     header file for snakescene.cpp
     @author    Iwan Bos
     @date      6.12.2022
     @copyright © Iwan Bos, 2022. All right reserved.
 
 **/
 
-#ifndef MYSCENE_H
-#define MYSCENE_H
+#ifndef SNAKESCENE_H
+#define SNAKESCENE_H
 
 #include <rt2d/scene.h>
 #include "snakescene.h"
+#include "hud.h"
 #include "snake.h"
 
 /**
@@ -36,9 +37,11 @@ public:
 
  // ---------------------------------- private ---------------------------------
 private:
+	/// @brief the hud layer
+	Hud* hud;
 	/// @brief the snake head
 	Snake* snake;
 	Timer t;
 };
 
-#endif /* SCENE00_H */
+#endif /* SNAKESCENE_H */

@@ -8,8 +8,8 @@
 
 **/
 
-#ifndef MYENTITY_H
-#define MYENTITY_H
+#ifndef SNAKE_H
+#define SNAKE_H
 
 #include <rt2d/entity.h>
 
@@ -25,7 +25,7 @@ public:
 
 	/**
 		 @brief Update function, gets called every frame.
-		 @param deltaTime - 
+		 @param deltaTime - The time that's passed since the last update.
 	**/
 	virtual void update(float deltaTime);
 
@@ -38,14 +38,14 @@ private:
 
 	/**
 		 @brief Ik weet niet wat koen deed hier
-		 @param deltaTime - 
+		 @param deltaTime - The time that's passed since the last update.
 	**/
 	void WtfKoen(float deltaTime);
 	/**
 		 @brief Controls are recieved and converted to directions to face.
-		 @param deltaTime - 
+		 @param deltaTime - The time that's passed since the last update.
 	**/
 	void Controls(float deltaTime);
 };
 
-#endif /* MYENTITY_H */
+#endif /* SNAKE_H */
