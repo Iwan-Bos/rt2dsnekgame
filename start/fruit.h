@@ -1,26 +1,26 @@
 /**
 
-    @file      hud.h
-    @brief     header file for hud.cpp
+    @file      fruit.h
+    @brief     header file for fruit.cpp
     @author    Iwan Bos
     @date      8.12.2022
     @copyright © Iwan Bos, 2022. All right reserved.
 
 **/
 
-#ifndef HUD_H
-#define HUD_H
+#ifndef FRUIT_H
+#define FRUIT_H
 
 #include <rt2d/entity.h>
 
-class Hud : public Entity
+class Fruit : public Entity
 {
  // ---------------------------------- public ----------------------------------
 public:
 	/// @brief Fruit object constructor
-	Hud();
+	Fruit();
 	/// @brief Fruit object deconstructor
-	virtual ~Hud();
+	virtual ~Fruit();
 
  // ---------------------------------- private ---------------------------------
 private:

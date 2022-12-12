@@ -1,6 +1,6 @@
 /**
 
-    @file      hud.cpp
+    @file      fruit.cpp
     @brief     
     @author    Iwan Bos
     @date      8.12.2022
@@ -8,22 +8,22 @@
 
 **/
 
-#include "hud.h"
+#include "fruit.h"
 
 // --------------------------------- functions ---------------------------------
 
-void Hud::update(float deltaTime)
+void Fruit::update(float deltaTime)
 {
 
 }
 
 // --------------------- constructor & deconstructor magic ---------------------
 
-Hud::Hud()
+Fruit::Fruit()
 {
 	this->addSprite("assets/start/border.tga");
 }
 
-Hud::~Hud()
+Fruit::~Fruit()
 {
 }
