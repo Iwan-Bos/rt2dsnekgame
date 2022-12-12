@@ -10,14 +10,6 @@
 
 #include "snake.h"
 
-// --------------------------------- Variables ---------------------------------
-Point3 velocity = Point3();
-Point3 acceleration = Point3();
-float timer = .0f;
-int amp = 100.0f;
-float freq = .05f;
-float anchorY = SHEIGHT /2;
-
 // --------------------------------- Functions ---------------------------------
 
 void Snake::Controls(float deltaTime)
@@ -69,8 +61,7 @@ void Snake::update(float deltaTime)
 // ---------------------- Construct & Deconstructing magic ---------------------
 Snake::Snake() : Entity()
 {
-	this->addSprite("assets/snekhead.tga");
-	//this->sprite()->color = RGBAColor(255, 133, 211);
+	this->addSprite("assets/start/snekhead.tga");
 }
 
 Snake::~Snake()
