@@ -30,12 +30,16 @@ SnakeScene::SnakeScene() : Scene()
 	// the Sprite is added in Constructor of Snake.
 	snake = new Snake();
 
-	//hud = new Hud(); <<<<<<<<<<<<<<<<< HUD HERE AND STFFFFFFFFFFFFFFFFF
+	// create a single instance of Hud in the middle of the screen.
+	// the hud elements are added in Constructor of Hud.
+	hud = new Hud();
 
-	snake->position = Point2(SWIDTH/2, SHEIGHT/2);
+	snake->position = Point2(SWIDTH / 2, SHEIGHT / 2);
+	hud->position = Point2(SWIDTH / 2, SHEIGHT / 2);
 
 	// create the scene 'tree'
-	// add snake to this Scene as a child.
+	// add hud & snake to this Scene as a child.
+	this->addChild(hud);
 	this->addChild(snake);
 }
 
@@ -44,7 +48,9 @@ SnakeScene::~SnakeScene()
 {
 	// deconstruct and delete the Tree
 	this->removeChild(snake);
+	this->removeChild(hud);
 
-	// delete snake from the heap (there was a 'new' in the constructor)
+	// delete hud & snake from the heap (there was a 'new' in the constructor)
 	delete snake;
+	delete hud;
 }
