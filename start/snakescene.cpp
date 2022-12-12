@@ -17,7 +17,7 @@ void SnakeScene::update(float deltaTime)
 		this->stop();
 	}
 
-	// removing the fruit and adding score.
+	// removing the fruit and adding score when collected.
 	// done with a keybind since collision is not a thing yet. 
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ #### TEMPORARY ####
 	if (input()->getKeyUp(KeyCode::Space)) { FruitCollect(); }
@@ -25,29 +25,21 @@ void SnakeScene::update(float deltaTime)
 
 void SnakeScene::FruitCollect()
 {
-	// remove fruit
+	/* remove fruit */
 	this->removeChild(fruit);
 	delete fruit;
 
-	// add score
+	/* add score */
 	score++;
 
-	// print score
-	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ #### TEMPORARY ####
-	std::cout << score << std::endl;
+ // ----------------------------------- TODO: ----------------------------------
+ // ------------------------------- display score ------------------------------
 
-
-	// spawn new fruit
-	SpawnFruit();
-}
-
-void SnakeScene::SpawnFruit()
-{
-	// adding fruit to scene
+	/* add fruit to scene */
 	fruit = new Fruit();
 	this->addChild(fruit);
 
-	// random location for fruit
+	/* randomize the location of the newly spawned fruit */
 	fruit->position = Point2(rand() % SWIDTH, rand() % SHEIGHT);
 }
 
