@@ -15,6 +15,7 @@
 #include "snakescene.h"
 #include "hud.h"
 #include "snake.h"
+#include "fruit.h"
 
 /**
     @class   SnakeScene
@@ -29,11 +30,19 @@ public:
 	/// @brief Destructor
 	virtual ~SnakeScene();
 
-	/**
+	 /**
 		 @brief update function, called once a frame.
 		 @param deltaTime - 
-	**/
+	 **/
 	virtual void update(float deltaTime);
+	 /**
+		 @brief called when fruit is collected by the snake
+	 **/
+	void FruitCollect();
+	 /**
+		 @brief Simple function to spawn fruit.
+	 **/
+	void SpawnFruit();
 
  // ---------------------------------- private ---------------------------------
 private:
@@ -41,7 +50,13 @@ private:
 	Hud* hud;
 	/// @brief the snake head
 	Snake* snake;
+	/// @brief fruit collectable, default nullptr
+	Fruit* fruit = nullptr;
+	/// @brief timer
 	Timer t;
+
+	/// @brief the length and score of the player
+	int score = 0;
 };
 
 #endif /* SNAKESCENE_H */
