@@ -10,15 +10,16 @@
 
 #include "snake.h"
 
+// --------------------------------- Variables ---------------------------------
+	float speed = 100;
+
 // --------------------------------- Functions ---------------------------------
 
 void Snake::Controls(float deltaTime)
 {
-	// <koen wat deze zijn>
-	speed = 100 * deltaTime;
+	// get the current rotation of the snake head.
 	currentRotation = this->rotation.z * 180 / PI;
 	currentRotation = fmod(currentRotation, 180);
-	// <koen wat deze zijn/>
 
 /*
 	       -90
@@ -44,18 +45,17 @@ void Snake::Controls(float deltaTime)
 	if (input()->getKey(KeyCode::Left)) { this->rotation.z = -135 * DEG_TO_RAD; }
 }
 
-void Snake::WtfKoen(float deltaTime) 
+void Snake::Move(float deltaTime) 
 {
-	// <koen wat deze zijn>
-	this->position.x += (cos(0.017453277777 * currentRotation)) * speed;
-	this->position.y += (sin(0.017453277777 * currentRotation)) * speed;
-	// <koen wat deze zijn/>
+	// moves in the current facing direction
+	this->position.x += (cos(0.017453277777 * currentRotation)) * speed * deltaTime;
+	this->position.y += (sin(0.017453277777 * currentRotation)) * speed * deltaTime;
 }
 
 void Snake::update(float deltaTime)
 {
 	Controls(deltaTime);
-	WtfKoen(deltaTime);
+	Move(deltaTime);
 }
 
 // ---------------------- Construct & Deconstructing magic ---------------------

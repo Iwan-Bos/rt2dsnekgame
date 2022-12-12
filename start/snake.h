@@ -40,7 +40,7 @@ private:
 		 @brief Ik weet niet wat koen deed hier
 		 @param deltaTime - The time that's passed since the last update.
 	**/
-	void WtfKoen(float deltaTime);
+	void Move(float deltaTime);
 	/**
 		 @brief Controls are recieved and converted to directions to face.
 		 @param deltaTime - The time that's passed since the last update.
