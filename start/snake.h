@@ -46,6 +46,11 @@ private:
 		 @param deltaTime - The time that's passed since the last update.
 	**/
 	void Controls(float deltaTime);
+ /**
+     @brief  decides the speed of the snake.
+     @retval  - float
+ **/
+	float Boost();
 };
 
 #endif /* SNAKE_H */
