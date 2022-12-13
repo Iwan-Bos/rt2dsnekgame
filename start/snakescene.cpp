@@ -12,20 +12,23 @@
 // --------------------------------- functions ---------------------------------
 void SnakeScene::update(float deltaTime)
 {
-	// Escape key stops the Scene
+	/* Escape stops the scene */
 	if (input()->getKeyUp(KeyCode::Escape)) {
 		this->stop();
 	}
 
-	// removing the fruit and adding score when collected.
-	// done with a keybind since collision is not a thing yet. 
-	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ #### TEMPORARY ####
-	if (input()->getKeyUp(KeyCode::Space)) { FruitCollect(); }
+	
+	
+	/* check how near the snake is, when close enough collect fruit. */
+	if (CheckFruitProximity())
+	{
+		FruitCollect();
+	}
 }
 
 void SnakeScene::FruitCollect()
 {
-	/* remove fruit */
+	/* remove fruit from memory */
 	this->removeChild(fruit);
 	delete fruit;
 
@@ -35,7 +38,7 @@ void SnakeScene::FruitCollect()
  // ----------------------------------- TODO: ----------------------------------
  // ------------------------------- display score ------------------------------
 
-	/* add fruit to scene */
+	/* add fruit to scene (and memory) */
 	fruit = new Fruit();
 	this->addChild(fruit);
 
@@ -43,9 +46,30 @@ void SnakeScene::FruitCollect()
 	fruit->position = Point2(rand() % SWIDTH, rand() % SHEIGHT);
 }
 
+char SnakeScene::CheckFruitProximity()
+{
+	/* "renaming" for simplicity's sake */
+	Point3 snekpos = snake->position;
+	Point3 fruitpos = fruit->position;
+	
+	/* pytagorasexceptspelledcorrectly */
+	/* this can be done more efficiently, but I don't wanna think about that yet */
+	float distance = hypotf(fruitpos.x - snekpos.x, fruitpos.y - snekpos.y);
+//	float distance = sqrtf( powf(fruitpos.x - snekpos.x, 2.0f) + powf(fruitpos.y - snekpos.y, 2.0f) );
+
+	/* 
+	snekhead.tga = 64 x 64px
+	snekbody.tga = 64 x 64px
+	*/
+	if (distance <= 64)
+	{
+		return 1;
+	}
+	return 0;
+}
+
 // -------------------- constructor and deconstructor magic --------------------
 
-/// @brief SnakeScene object constructor
 SnakeScene::SnakeScene() : Scene()
 {
 	// start the timer.
@@ -77,7 +101,6 @@ SnakeScene::SnakeScene() : Scene()
 	this->addChild(fruit);
 }
 
-/// @brief SnakeScene object destructor
 SnakeScene::~SnakeScene()
 {
 	// deconstruct and delete the Tree

@@ -40,9 +40,9 @@ public:
 	 **/
 	void FruitCollect();
 	 /**
-		 @brief Simple function to spawn fruit.
+		 @brief check if the snake is close enough to collect the fruit.
 	 **/
-	void SpawnFruit();
+	char CheckFruitProximity();
 
  // ---------------------------------- private ---------------------------------
 private:
