@@ -31,7 +31,7 @@ void Snake::Controls(float deltaTime)
 				|
 				v
 		Z		90		 C
-				X
+				S
 
 	Boost = J
 	*/
@@ -42,7 +42,7 @@ void Snake::Controls(float deltaTime)
 		/* Up			*/if (input()->getKey(KeyCode::W)) {this->rotation.z = -90 * DEG_TO_RAD;}
 		/* Right		*/if (input()->getKey(KeyCode::D)) {this->rotation.z = 0 * DEG_TO_RAD;}
 		/* Left			*/if (input()->getKey(KeyCode::A)) {this->rotation.z = 180 * DEG_TO_RAD -.0000001;}
-		/* Down			*/if (input()->getKey(KeyCode::X)) {this->rotation.z = 90 * DEG_TO_RAD;}
+		/* Down			*/if (input()->getKey(KeyCode::S)) {this->rotation.z = 90 * DEG_TO_RAD;}
 
 		// -------------------------- 4-way diagonal movment -------------------------
 		/* Up Right		*/if (input()->getKey(KeyCode::E)) {this->rotation.z = -45 * DEG_TO_RAD;}

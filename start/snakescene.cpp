@@ -88,26 +88,26 @@ SnakeScene::SnakeScene() : Scene()
 	// this is the only for the first fruit.
 	fruit = new Fruit();
 
-	hud->position = Point2(SWIDTH / 2, SHEIGHT / 2);
 	snake->position = Point2(SWIDTH / 2, SHEIGHT / 2);
+	hud->position = Point2(SWIDTH / 2, SHEIGHT / 2);
 	fruit->position = Point2(rand() % SWIDTH, rand() % SHEIGHT);
 
 	// create the scene 'tree'
 	// add hud & snake to this Scene as a child.
-	this->addChild(hud);
 	this->addChild(snake); 
+	this->addChild(hud);
 	this->addChild(fruit);
 }
 
 SnakeScene::~SnakeScene()
 {
 	// deconstruct and delete the Tree
-	this->removeChild(hud);
 	this->removeChild(snake);
+	this->removeChild(hud);
 	this->removeChild(fruit);
 
 	// delete hud & snake from the heap (there was a 'new' in the constructor)
-	delete hud;
 	delete snake;
+	delete hud;
 	delete fruit;
 }

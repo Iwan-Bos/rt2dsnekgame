@@ -11,7 +11,6 @@
 #ifndef SNAKEBODY_H
 #define SNAKEBODY_H
 
-#include <rt2d/entity.h>
 #include "snake.h"
 
 /**
