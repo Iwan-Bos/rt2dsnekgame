@@ -88,9 +88,13 @@ SnakeScene::SnakeScene() : Scene()
 	// this is the only for the first fruit.
 	fruit = new Fruit();
 
+	/* set the positions */
 	snake->position = Point2(SWIDTH / 2, SHEIGHT / 2);
 	hud->position = Point2(SWIDTH / 2, SHEIGHT / 2);
 	fruit->position = Point2(rand() % SWIDTH, rand() % SHEIGHT);
+
+	/* set the scale */
+	hud->scale = Point3(1.25f, 1.41f, 1.0f);
 
 	// create the scene 'tree'
 	// add hud & snake to this Scene as a child.
