@@ -18,8 +18,7 @@ void Snake::Controls(float deltaTime)
 	speed = Boost();
 
 	// get the current rotation of the snake head.
-	currentRotation = this->rotation.z * 180 / PI;
-	currentRotation = fmod(currentRotation, 180);
+	currentRotation = fmod(this->rotation.z * 180 / PI, 180);
 
 	/*
 			   -90
@@ -35,13 +34,13 @@ void Snake::Controls(float deltaTime)
 	if (speed != 500)
 	{
 
-		// ---------------------- W, D A, & S for 4-way movement ----------------------
+		// ------------------------------ 4-way movement -----------------------------
 //		/* Up			*/if (input()->getKey(KeyCode::W)) {this->rotation.z = -90 * DEG_TO_RAD;}
 //		/* Right		*/if (input()->getKey(KeyCode::D)) {this->rotation.z = 0 * DEG_TO_RAD;}
 //		/* Down			*/if (input()->getKey(KeyCode::A)) {this->rotation.z = 180 * DEG_TO_RAD - .0000001;}
 //		/* Left			*/if (input()->getKey(KeyCode::S)) {this->rotation.z = 90 * DEG_TO_RAD;}
 
-		// ------------- Up, Right, Down & Left for 4-way diagonal movment ------------
+		// -------------------------- 4-way diagonal movment -------------------------
 		/* Up Right		*/if (input()->getKey(KeyCode::E)) {this->rotation.z = -45 * DEG_TO_RAD;}
 		/* Down Right	*/if (input()->getKey(KeyCode::D)) {this->rotation.z = 45 * DEG_TO_RAD;}
 		/* Down Left	*/if (input()->getKey(KeyCode::A)) {this->rotation.z = 135 * DEG_TO_RAD;}
@@ -51,20 +50,20 @@ void Snake::Controls(float deltaTime)
 
 void Snake::Move(float deltaTime) 
 {
-	// moves in the current facing direction
+	/* moves in the current facing direction */
 	this->position.x += (cos(0.017453277777 * currentRotation)) * speed * deltaTime;
 	this->position.y += (sin(0.017453277777 * currentRotation)) * speed * deltaTime;
 }
 
 float Snake::Boost()
 {
-	// when pressing space.
+	/* when pressing space. */
 	if (input()->getKey(KeyCode::J))
 	{
-		// set speed to 500.
+		/* set speed to 500. */
 		return 500.0f;
 	}
-	// and otherwise to 150.
+	/* and otherwise to 150. */
 	return 300.0f;
 }
 
