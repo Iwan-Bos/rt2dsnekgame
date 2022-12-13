@@ -17,12 +17,17 @@ void SnakeScene::update(float deltaTime)
 		this->stop();
 	}
 
-	
-	
-	/* check how near the snake is, when close enough collect fruit. */
+	/* check how near the snake is, when close enough: collect fruit, add score & add a snake segment. */
 	if (CheckFruitProximity())
 	{
+		/* remove the fruit and spawn a new one. */
 		FruitCollect();
+
+		/* add score */
+		score++;
+
+		// ----------------------------------- TODO: ----------------------------------
+		// ------------------------------- display score ------------------------------
 	}
 }
 
@@ -31,12 +36,6 @@ void SnakeScene::FruitCollect()
 	/* remove fruit from memory */
 	this->removeChild(fruit);
 	delete fruit;
-
-	/* add score */
-	score++;
-
- // ----------------------------------- TODO: ----------------------------------
- // ------------------------------- display score ------------------------------
 
 	/* add fruit to scene (and memory) */
 	fruit = new Fruit();
@@ -55,7 +54,6 @@ char SnakeScene::CheckFruitProximity()
 	/* pytagorasexceptspelledcorrectly */
 	/* this can be done more efficiently, but I don't wanna think about that yet */
 	float distance = hypotf(fruitpos.x - snekpos.x, fruitpos.y - snekpos.y);
-//	float distance = sqrtf( powf(fruitpos.x - snekpos.x, 2.0f) + powf(fruitpos.y - snekpos.y, 2.0f) );
 
 	/* 
 	snekhead.tga = 64 x 64px
