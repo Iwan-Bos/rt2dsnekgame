@@ -34,4 +34,3 @@ private:
 };
 
 #endif // !SNAKEBODY_H
-

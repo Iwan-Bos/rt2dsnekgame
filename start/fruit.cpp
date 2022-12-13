@@ -21,7 +21,7 @@ void Fruit::update(float deltaTime)
 
 Fruit::Fruit()
 {
-	this->addSprite("assets/start/snekbody.tga");
+	this->addSprite("assets/start/fruit.tga");
 }
 
 Fruit::~Fruit()

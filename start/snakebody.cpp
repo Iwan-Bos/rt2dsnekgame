@@ -10,7 +10,6 @@
 
 #include "snakebody.h"
 
-
 // ---------------------- Contructor & Deconstructor Magic ---------------------
 SnakeBody::SnakeBody()
 {

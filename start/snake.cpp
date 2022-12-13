@@ -21,8 +21,8 @@ void Snake::Controls(float deltaTime)
 	currentRotation = fmod(this->rotation.z * 180 / PI, 180);
 
 	/* ###### Controls ######
-	Q			W			E
-			   -90
+				W
+		Q	   -90      E
 				^
 				|
 	-180        |
@@ -30,8 +30,8 @@ void Snake::Controls(float deltaTime)
 	 180        |
 				|
 				v
-				90
-	Z			X			C
+		Z		90		 C
+				X
 
 	Boost = J
 	*/
@@ -85,7 +85,7 @@ void Snake::update(float deltaTime)
 
 void Snake::AddBodyPart()
 {
-
+	//SnakeBody* segment = new SnakeBody();
 }
 
 // ---------------------- Construct & Deconstructing magic ---------------------

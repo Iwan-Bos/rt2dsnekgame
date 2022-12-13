@@ -12,6 +12,7 @@
 #define SNAKE_H
 
 #include <rt2d/entity.h>
+#include "snakebody.h"
 
 /// @brief The Snake class is the Entity implementation.
 class Snake : public Entity
