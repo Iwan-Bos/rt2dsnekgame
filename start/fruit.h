@@ -26,7 +26,7 @@ public:
 private:
  /**
      @brief gets called every frame
-     @param deltaTime - 
+     @param deltaTime - The time that's passed since the last update.
  **/
 	virtual void update(float deltaTime);
 };

@@ -32,7 +32,7 @@ public:
 
 	 /**
 		 @brief update function, called once a frame.
-		 @param deltaTime - 
+		 @param deltaTime - The time that's passed since the last update.
 	 **/
 	virtual void update(float deltaTime);
 	 /**
