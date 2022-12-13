@@ -20,23 +20,28 @@ void Snake::Controls(float deltaTime)
 	// get the current rotation of the snake head.
 	currentRotation = fmod(this->rotation.z * 180 / PI, 180);
 
-	/*
+	/* ###### Controls ######
+	Q			W			E
 			   -90
 				^
 				|
 	-180        |
-	   <--------+------->0
+	A   <-------+------->0	D
 	 180        |
 				|
 				v
 				90
-	 */
+	Z			X			C
+
+	Boost = J
+	*/
+
 	if (speed != 500)
 	{
 		// ------------------------------ 4-way movement -----------------------------
 		/* Up			*/if (input()->getKey(KeyCode::W)) {this->rotation.z = -90 * DEG_TO_RAD;}
 		/* Right		*/if (input()->getKey(KeyCode::D)) {this->rotation.z = 0 * DEG_TO_RAD;}
-		/* Left			*/if (input()->getKey(KeyCode::A)) {this->rotation.z = 180 * DEG_TO_RAD; -.0000001;}
+		/* Left			*/if (input()->getKey(KeyCode::A)) {this->rotation.z = 180 * DEG_TO_RAD -.0000001;}
 		/* Down			*/if (input()->getKey(KeyCode::X)) {this->rotation.z = 90 * DEG_TO_RAD;}
 
 		// -------------------------- 4-way diagonal movment -------------------------
@@ -68,8 +73,19 @@ float Snake::Boost()
 
 void Snake::update(float deltaTime)
 {
+	/* 
+	changes direction of the snake. 
+	boosting is also controlled here.
+	*/
 	Controls(deltaTime);
+
+	/* moves the snake forward in the facing direction. */
 	Move(deltaTime);
+}
+
+void Snake::AddBodyPart()
+{
+
 }
 
 // ---------------------- Construct & Deconstructing magic ---------------------
