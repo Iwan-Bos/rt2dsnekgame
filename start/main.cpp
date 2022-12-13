@@ -1,9 +1,8 @@
 /**
 
     @file      main.cpp
-
-    @brief     Description of My Awesome Game
-    @section   intro Introduction
+    @brief     Snake without grid system and additional movement options.
+    @section   
 
 	@author    Iwan Bos
     @date      6.12.2022
