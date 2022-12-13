@@ -16,7 +16,7 @@
 
 /**
     @class   SnakeBody
-    @brief   stuff
+    @brief   The trail of snake parts following the head.
 **/
 class SnakeBody : public Snake
 {

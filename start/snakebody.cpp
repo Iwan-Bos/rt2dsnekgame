@@ -14,6 +14,7 @@
 // ---------------------- Contructor & Deconstructor Magic ---------------------
 SnakeBody::SnakeBody()
 {
+	this->addSprite("assets/start/snekbody.tga");
 }
 
 SnakeBody::~SnakeBody()
