@@ -29,6 +29,11 @@ public:
 	**/
 	virtual void update(float deltaTime);
 
+	/**
+		 @brief adds a segment to the snake.
+	 **/
+	void AddSegment();
+
  // ---------------------------------- private ---------------------------------
 private:
 	/// @brief current rotation of the snakehead
@@ -51,10 +56,6 @@ private:
 		 @retval float - the speed the snake should go.
 	 **/
 	float Boost();
-	 /**
-		 @brief adds a segment to the snake.
-	 **/
-	void AddBodyPart();
 };
 
 #endif /* SNAKE_H */

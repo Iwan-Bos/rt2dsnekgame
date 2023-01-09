@@ -8,6 +8,7 @@
 #include <sstream>
 
 #include "snakescene.h"
+#include "snake.h"
 
 // --------------------------------- functions ---------------------------------
 void SnakeScene::update(float deltaTime)
@@ -43,6 +44,8 @@ void SnakeScene::FruitCollect()
 
 	/* randomize the location of the newly spawned fruit */
 	fruit->position = Point2(rand() % SWIDTH, rand() % SHEIGHT);
+
+	
 }
 
 char SnakeScene::CheckFruitProximity()

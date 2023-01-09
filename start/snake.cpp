@@ -9,6 +9,7 @@
 **/
 
 #include "snake.h"
+#include "snakebody.h"
 
 // --------------------------------- Functions ---------------------------------
 
@@ -83,9 +84,10 @@ void Snake::update(float deltaTime)
 	Move(deltaTime);
 }
 
-void Snake::AddBodyPart()
+void Snake::AddSegment()
 {
-	//SnakeBody* segment = new SnakeBody();
+	SnakeBody* segment = new SnakeBody();
+	segment->position = Point2(rand() % SWIDTH, rand() % SHEIGHT);
 }
 
 // ---------------------- Construct & Deconstructing magic ---------------------
