@@ -61,7 +61,7 @@ void Snake::Move(float deltaTime)
 
 float Snake::Boost()
 {
-	/* when pressing space. */
+	/* when pressing J. */
 	if (input()->getKey(KeyCode::J))
 	{
 		/* set speed to 500. */
