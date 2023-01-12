@@ -1,10 +1,10 @@
 /**
 
-    @file      snake.h
-    @brief     header for snake.cpp
-    @author    Iwan Bos
-    @date      6.12.2022
-    @copyright © Iwan Bos, 2022. All right reserved.
+	@file      snake.h
+	@brief     header for snake.cpp
+	@author    Iwan Bos
+	@date      6.12.2022
+	@copyright © Iwan Bos, 2022. All right reserved.
 
 **/
 
@@ -12,6 +12,7 @@
 #define SNAKE_H
 
 #include <rt2d/entity.h>
+#include "snakebody.h"
 
 /// @brief The Snake class is the Entity implementation.
 class Snake : public Entity
@@ -29,33 +30,24 @@ public:
 	**/
 	virtual void update(float deltaTime);
 
-	/**
-		 @brief adds a segment to the snake.
-	 **/
-	void AddSegment();
-
  // ---------------------------------- private ---------------------------------
 private:
-	/// @brief current rotation of the snakehead
-	float currentRotation;
 	/// @brief speed of the snakehead
 	float speed;
+	/// @brief a bool that turns true when the snake turns
+	char turned;
+	
 
 	/**
-		 @brief Ik weet niet wat koen deed hier
+		 @brief moves the snake head forward in the facing direction.
 		 @param deltaTime - The time that's passed since the last update.
 	**/
 	void Move(float deltaTime);
 	/**
-		 @brief Controls are recieved and converted to directions to face.
+		 @brief controls are recieved and converted to directions to face.
 		 @param deltaTime - The time that's passed since the last update.
 	**/
 	void Controls(float deltaTime);
-	 /**
-		 @brief  decides the speed of the snake.
-		 @retval float - the speed the snake should go.
-	 **/
-	float Boost();
 };
 
 #endif /* SNAKE_H */

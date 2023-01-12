@@ -18,18 +18,20 @@ void SnakeScene::update(float deltaTime)
 		this->stop();
 	}
 
-	/* check how near the snake is, when close enough: collect fruit, add score & add a snake segment. */
+	/* check how close the snake is, when close enough: collect fruit, add score & add a snake segment. */
 	if (CheckFruitProximity())
 	{
 		/* remove the fruit and spawn a new one. */
 		FruitCollect();
 
+		/* add snake segment */
+		this->addChild(this->AddSegment());
+
 		/* add score */
 		score++;
-
-		// ----------------------------------- TODO: ----------------------------------
-		// ------------------------------- display score ------------------------------
 	}
+	// ----------------------------------- TODO: ----------------------------------
+	// ------------------------------- display score ------------------------------
 }
 
 void SnakeScene::FruitCollect()
@@ -44,8 +46,6 @@ void SnakeScene::FruitCollect()
 
 	/* randomize the location of the newly spawned fruit */
 	fruit->position = Point2(rand() % SWIDTH, rand() % SHEIGHT);
-
-	
 }
 
 char SnakeScene::CheckFruitProximity()
@@ -69,6 +69,26 @@ char SnakeScene::CheckFruitProximity()
 	return 0;
 }
 
+Entity* SnakeScene::AddSegment()
+{
+	SnakeBody* segment;
+
+	if (segments.size() != 0)
+	{
+		segment = new SnakeBody(segments[segments.size() - 1]);
+	}
+	else
+	{
+		segment = new SnakeBody(snake);
+	}
+
+	/* add segment to segment list. */
+	segments.push_back(segment);
+
+	/* pass the segment on to add it to the scene as a child. */
+	return segment;
+}
+
 // -------------------- constructor and deconstructor magic --------------------
 
 SnakeScene::SnakeScene() : Scene()
@@ -76,7 +96,7 @@ SnakeScene::SnakeScene() : Scene()
 	// start the timer.
 	t.start();
 
-	// makes the randomisation seed change with time;
+	// makes the randomisation seed change with time.
 	srand(time(NULL));
 
 	// create a single instance of Snake in the middle of the screen.

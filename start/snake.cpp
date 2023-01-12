@@ -11,16 +11,23 @@
 #include "snake.h"
 #include "snakebody.h"
 
+// ---------------------- Construct & Deconstructing magic ---------------------
+Snake::Snake() : Entity()
+{
+	this->addSprite("assets/start/snekhead.tga");
+
+	speed = 300;
+	turned = 0;
+}
+
+Snake::~Snake()
+{
+}
+
 // --------------------------------- Functions ---------------------------------
 
 void Snake::Controls(float deltaTime)
 {
-	// decide the speed of snake.
-	speed = Boost();
-
-	// get the current rotation of the snake head.
-	currentRotation = fmod(this->rotation.z * 180 / PI, 180);
-
 	/* ###### Controls ######
 				W
 		Q	   -90      E
@@ -37,65 +44,30 @@ void Snake::Controls(float deltaTime)
 	Boost = J
 	*/
 
-	if (speed != 500)
-	{
-		// ------------------------------ 4-way movement -----------------------------
-		/* Up			*/if (input()->getKey(KeyCode::W)) {this->rotation.z = -90 * DEG_TO_RAD;}
-		/* Right		*/if (input()->getKey(KeyCode::D)) {this->rotation.z = 0 * DEG_TO_RAD;}
-		/* Left			*/if (input()->getKey(KeyCode::A)) {this->rotation.z = 180 * DEG_TO_RAD -.0000001;}
-		/* Down			*/if (input()->getKey(KeyCode::S)) {this->rotation.z = 90 * DEG_TO_RAD;}
+	turned = 0;
+		
+	// ------------------------------ 4-way movement -----------------------------
+	/* Up			*/if (input()->getKey(KeyCode::W)) { this->rotation.z = -90 * DEG_TO_RAD; turned = 1;}
+	/* Right		*/if (input()->getKey(KeyCode::D)) { this->rotation.z = 0 * DEG_TO_RAD; turned = 1;}
+	/* Left			*/if (input()->getKey(KeyCode::A)) { this->rotation.z = 180 * DEG_TO_RAD - .0000001; turned = 1;}
+	/* Down			*/if (input()->getKey(KeyCode::S)) { this->rotation.z = 90 * DEG_TO_RAD; turned = 1;}
 
-		// -------------------------- 4-way diagonal movment -------------------------
-		/* Up Right		*/if (input()->getKey(KeyCode::E)) {this->rotation.z = -45 * DEG_TO_RAD;}
-		/* Down Right	*/if (input()->getKey(KeyCode::C)) {this->rotation.z = 45 * DEG_TO_RAD;}
-		/* Down Left	*/if (input()->getKey(KeyCode::Z)) {this->rotation.z = 135 * DEG_TO_RAD;}
-		/* Up Left		*/if (input()->getKey(KeyCode::Q)) {this->rotation.z = -135 * DEG_TO_RAD;}
-	}
+	// -------------------------- 4-way diagonal movment -------------------------
+	/* Up Right		*/if (input()->getKey(KeyCode::E)) { this->rotation.z = -45 * DEG_TO_RAD; turned = 1;}
+	/* Down Right	*/if (input()->getKey(KeyCode::C)) { this->rotation.z = 45 * DEG_TO_RAD; turned = 1;}
+	/* Down Left	*/if (input()->getKey(KeyCode::Z)) { this->rotation.z = 135 * DEG_TO_RAD; turned = 1;}
+	/* Up Left		*/if (input()->getKey(KeyCode::Q)) { this->rotation.z = -135 * DEG_TO_RAD; turned = 1;}
 }
 
 void Snake::Move(float deltaTime) 
 {
-	/* moves in the current facing direction */
-	this->position.x += (cos(0.017453277777 * currentRotation)) * speed * deltaTime;
-	this->position.y += (sin(0.017453277777 * currentRotation)) * speed * deltaTime;
-}
-
-float Snake::Boost()
-{
-	/* when pressing J. */
-	if (input()->getKey(KeyCode::J))
-	{
-		/* set speed to 500. */
-		return 500.0f;
-	}
-	/* and otherwise to 150. */
-	return 300.0f;
+	/* uses cosine and sine functions to decide the velocity. */
+	this->position.x += (cos(this->rotation.z)) * speed * deltaTime;
+	this->position.y += (sin(this->rotation.z)) * speed * deltaTime;
 }
 
 void Snake::update(float deltaTime)
 {
-	/* 
-	changes direction of the snake. 
-	boosting is also controlled here.
-	*/
 	Controls(deltaTime);
-
-	/* moves the snake forward in the facing direction. */
 	Move(deltaTime);
-}
-
-void Snake::AddSegment()
-{
-	SnakeBody* segment = new SnakeBody();
-	segment->position = Point2(rand() % SWIDTH, rand() % SHEIGHT);
-}
-
-// ---------------------- Construct & Deconstructing magic ---------------------
-Snake::Snake() : Entity()
-{
-	this->addSprite("assets/start/snekhead.tga");
-}
-
-Snake::~Snake()
-{
 }

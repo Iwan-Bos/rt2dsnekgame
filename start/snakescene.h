@@ -44,6 +44,16 @@ public:
 	 **/
 	char CheckFruitProximity();
 
+	/**
+		@brief  adds a segment to the snake.
+		@retval Entity* - an Entity pointer.
+	**/
+	Entity* AddSegment();
+
+
+	/// @brief list of segments
+	std::vector<SnakeBody*> segments;
+
  // ---------------------------------- private ---------------------------------
 private:
 	/// @brief the hud layer
