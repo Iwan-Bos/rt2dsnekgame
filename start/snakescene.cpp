@@ -55,7 +55,6 @@ char SnakeScene::CheckFruitProximity()
 	Point3 fruitpos = fruit->position;
 	
 	/* pytagorasexceptspelledcorrectly */
-	/* this can be done more efficiently, but I don't wanna think about that yet */
 	float distance = hypotf(fruitpos.x - snekpos.x, fruitpos.y - snekpos.y);
 
 	/* 
@@ -71,14 +70,18 @@ char SnakeScene::CheckFruitProximity()
 
 Entity* SnakeScene::AddSegment()
 {
+	/* change the scope to this whole function*/
 	SnakeBody* segment;
 
+	/* when the list has something in it */
 	if (segments.size() != 0)
 	{
+		/* leader is snake body */
 		segment = new SnakeBody(segments[segments.size() - 1]);
 	}
-	else
+	else /* when the list is empty */
 	{
+		/* leader is snake head */
 		segment = new SnakeBody(snake);
 	}
 
