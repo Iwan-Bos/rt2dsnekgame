@@ -17,7 +17,7 @@
 /// @brief The Snake class is the Entity implementation.
 class Snake : public Entity
 {
- // ---------------------------------- public ----------------------------------
+	// ---------------------------------- public ----------------------------------
 public:
 	/// @brief Constructor
 	Snake();
@@ -30,24 +30,9 @@ public:
 	**/
 	virtual void update(float deltaTime);
 
- // ---------------------------------- private ---------------------------------
+	// ---------------------------------- private ---------------------------------
 private:
 	/// @brief speed of the snakehead
 	float speed;
-	/// @brief a bool that turns true when the snake turns
-	char turned;
-	
-
-	/**
-		 @brief moves the snake head forward in the facing direction.
-		 @param deltaTime - The time that's passed since the last update.
-	**/
-	void Move(float deltaTime);
-	/**
-		 @brief controls are recieved and converted to directions to face.
-		 @param deltaTime - The time that's passed since the last update.
-	**/
-	void Controls(float deltaTime);
 };
-
 #endif /* SNAKE_H */

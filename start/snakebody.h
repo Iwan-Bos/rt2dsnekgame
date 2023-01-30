@@ -22,19 +22,19 @@ class SnakeBody : public Entity
 // ----------------------------------- public ----------------------------------
 public:
 	/// @brief SnakeBody object constructor
-	SnakeBody(Entity* _leader);
+	SnakeBody(Entity* _leader, int _index);
 
 	/// @brief SnakeBody object destructor 
 	virtual ~SnakeBody();
 
 	virtual void update(float deltaTime);
 
+	/// @brief a list of the degrees the head turned to.
+	std::vector<int> rotationData;
+
 // ---------------------------------- private ----------------------------------
 private:
-	/// @brief list of waypoints
-	std::vector<Point3>waypoints;
-
-	/// @brief timer for waitDuration.
+	/// @brief timer for segment turn delay.
 	Timer* t;
 
 	/// @brief the snake segment leading this one.
@@ -44,9 +44,12 @@ private:
 	float speed;
 	/// @brief the time to wait before moving
 	float waitDuration;
-
-	/// @brief movement of the SnakeBody
-	void Move(float deltaTime);
+	/// @brief the current rotation of the segment leading this one.
+	float leaderCurrentRotation;
+	/// @brief the index of the segment (in the segments list).
+	int index;
+	/// @brief char to only start the timer once per segment check.
+	char timerInactive;
 };
 
 #endif // !SNAKEBODY_H
