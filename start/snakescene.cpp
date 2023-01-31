@@ -172,7 +172,7 @@ char SnakeScene::CheckSegmentProximity()
 		float distance = hypotf(snake->position.x - _segment->position.x, snake->position.y - _segment->position.y);
 
 		// when too close.
-		if (distance < 10)
+		if (distance < 15)
 		{
 			return 1;
 		}
